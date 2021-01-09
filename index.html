@@ -4,57 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Rock-Paper-Scissors</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <script>
-        // Returns a random choice for the computer's turn
-        function computerPlay() {
-            let randInt = Math.floor(Math.random() * 3);
-            if (randInt === 0) {
-                return 'rock';
-            } else if ( randInt === 1) {
-                return 'paper';
-            } else {
-                return 'scissors';
-            }
-        }
+    <h1>First to Five Wins!</h1>
+    <div class="choices">
+        <img src="images/rock.png" alt="" id='rock'>
+        <img src="images/paper.png" alt="" id='paper'>
+        <img src="images/scissors.png" alt="" id='scissors'>
+    </div>
+    <div class="mid-bar">
+        <p>Player Score</p>
+        <div class="player-score">0</div>
+        <button id="reset-game">Reset Game</button>
+        <div class="computer-score">0</div>
+        <p>Computer Score</p>
+    </div>
+    <div class="score">
+        <ul id=score-list></ul>
+    </div>
 
-        // Prompts the user for their choice and returns it in lowercase
-        function playerPlay() {
-            let playerSelection = prompt('Type one of the following options:\n-Rock\n-Paper\n-Scissors')
-            return playerSelection.toLowerCase()
-        }
-
-        // Compares player and computer's choices and declares win or lose
-        function playRound(playerSelection, computerSelection) {
-            if (playerSelection === computerSelection) {
-                return "It's a tie!";
-            } else if ((playerSelection === 'rock' && computerSelection === 'scissors')
-                        || (playerSelection === 'paper' && computerSelection === 'rock')
-                        || (playerSelection === 'scissors' && computerSelection === 'paper')) {
-                            return `You win! ${playerSelection} beats ${computerSelection}.`
-            } else {
-                return `You lose! ${computerSelection} beats ${playerSelection}`
-            }
-            
-        }
-
-        // Plays game once (can be updated with loops later on)
-        function game() {
-            let playerWins = 0;
-            let computerWins = 0;
-            let result = playRound(playerPlay(),computerPlay());
-            if (result.slice(4,5) === 'w') {
-                playerWins += 1;
-                console.log(result);
-            } else if (result.slice(4,5) === 'l') {
-                computerWins += 1;
-                console.log(result)
-            } else {
-                console.log(result)
-            }
-        }
-
-    </script>
+    <script src='index.js'></script>
 </body>
 </html>
